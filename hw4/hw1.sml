@@ -50,3 +50,18 @@ fun recursive_dates_in_month(xs : (int*int*int) list, month : int, accumulator :
 
 fun dates_in_month(dates : (int*int*int) list, month:int) =
   recursive_dates_in_month(dates, month, [])
+
+fun recursive_dates_in_months(dates : (int*int*int) list, months : int list, accumulator : (int*int*int) list) =
+  if null months 
+    then accumulator
+  else 
+    let 
+      val new_accumulator = accumulator @ dates_in_month(dates, (hd months))
+    in
+     recursive_dates_in_months(dates, (tl months), new_accumulator)
+    end
+
+fun dates_in_months(dates : (int*int*int) list, months : int list) = 
+  recursive_dates_in_months(dates, months, [])
+
+  
