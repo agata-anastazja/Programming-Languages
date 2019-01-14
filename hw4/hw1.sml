@@ -31,4 +31,22 @@ fun number_in_month(xs : (int*int*int) list, month : int) =
     recursive_number_in_month(xs, month, 0)
   
 
+fun recursive_dates_in_month(xs : (int*int*int) list, month : int, accumulator : (int*int*int) list) = 
+  if null xs 
+  then accumulator
+  else
+    let 
+      val current_date = hd xs
+      val current_month = (#2 current_date)
+      val new_accumulator = accumulator @ [current_date]
+      in 
+      if (current_month = month)
+      then 
+        recursive_dates_in_month(tl xs, month, new_accumulator)
+      else 
+      recursive_dates_in_month(tl xs, month, accumulator)
+    end
 
+
+fun dates_in_month(dates : (int*int*int) list, month:int) =
+  recursive_dates_in_month(dates, month, [])
