@@ -96,3 +96,18 @@ fun date_to_string(date : int*int*int) =
     in 
       get_nth(months, (#2 date)) ^ " " ^ Int.toString (#3 date) ^ ", " ^ Int.toString (#1 date)
     end
+
+fun recursive_number_before_reaching_sum(goal:int, integer_list: int list, index:int, sum:int) = 
+  let
+    val current_sum = sum + (hd integer_list)
+    val current_index = index + 1
+  in
+    if current_sum > goal
+      then index
+    else 
+      recursive_number_before_reaching_sum(sum, (tl integer_list), current_index, current_sum)
+  end
+
+
+fun number_before_reaching_sum(sum:int, integer_list: int list) =
+  recursive_number_before_reaching_sum(sum, integer_list, 0, 0)

@@ -18,4 +18,9 @@ val test_nth_element_2 = get_nth(["AB","CD", "EF", "GH"], 4) = "GH";
 val test_date_to_string = date_to_string(2018, 12, 31) = "December 31, 2018";
 val test_different_date_to_string = date_to_string(2019, 12, 31) = "December 31, 2019";
 
+(* val test_number_before_reaching_sum = number_before_reaching_sum(15, [1, 2, 3, 4, 5, 6]) = 4 andalso (number_before_reaching_sum(15, [1, 2, 3, 4, 4, 5, 6]) = 5); *)
+val test_number_before_reaching_sum = number_before_reaching_sum(1, [1]) = 0 
+val test_number_before_reaching_sum_when_first_elem_fullfills_condition = number_before_reaching_sum(2, [1, 2, 3, 4, 5, 6]) = 1
+
+
 
