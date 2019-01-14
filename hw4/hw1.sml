@@ -64,6 +64,8 @@ fun recursive_dates_in_months(dates : (int*int*int) list, months : int list, acc
 fun dates_in_months(dates : (int*int*int) list, months : int list) = 
   recursive_dates_in_months(dates, months, [])
 
+
+
 fun get_nth(words : string list, index : int) = 
   let 
     val new_index = index -1
@@ -75,3 +77,22 @@ fun get_nth(words : string list, index : int) =
   end
 
   
+fun date_to_string(date : int*int*int) = 
+  let
+    val months = [
+        "January",
+        "February",
+        "March", 
+        "April",
+        "May", 
+        "June", 
+        "July", 
+        "August", 
+        "September", 
+        "October", 
+        "November", 
+        "December"
+        ]
+    in 
+      get_nth(months, (#2 date)) ^ " " ^ Int.toString (#3 date) ^ ", " ^ Int.toString (#1 date)
+    end

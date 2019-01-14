@@ -12,4 +12,10 @@ val test_no_dates_in_months = dates_in_months([(21, 1, 1998)], [2, 3]) = []
 val test_one_date_in_dates_in_months = dates_in_months([(21, 1, 1998)], [1, 3]) = [(21, 1, 1998)] 
 
 val test_nth_element = get_nth(["AB","CD", "EF", "GH"], 3) = "EF";
+val test_nth_element_2 = get_nth(["AB","CD", "EF", "GH"], 4) = "GH";
+
+
+val test_date_to_string = date_to_string(2018, 12, 31) = "December 31, 2018";
+val test_different_date_to_string = date_to_string(2019, 12, 31) = "December 31, 2019";
+
 
