@@ -64,4 +64,14 @@ fun recursive_dates_in_months(dates : (int*int*int) list, months : int list, acc
 fun dates_in_months(dates : (int*int*int) list, months : int list) = 
   recursive_dates_in_months(dates, months, [])
 
+fun get_nth(words : string list, index : int) = 
+  let 
+    val new_index = index -1
+  in
+    if index = 1
+      then (hd words)
+    else
+      get_nth((tl words), new_index)
+  end
+
   
