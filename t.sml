@@ -12,6 +12,11 @@ val test_month_range_4 = month_range(40, 41 ) = [2, 2];
 val test_month_range_5 = month_range(31, 32 ) = [1, 2];
 val test10 = month_range(30, 33) = [1, 1, 2, 2];
 
+val test_oldest_when_no_dates_passed =  oldest [] = NONE;
+val test_oldest_when_one_date_passed =  oldest [(2018, 10, 30)] = SOME (2018, 10, 30);
+val test_oldest_when_two_dates_passed =  oldest [(2018, 10, 30), (2018, 9, 30)] = SOME (2018, 9, 30);
+val test_oldest = oldest([(2018, 10, 30), (2018, 10, 25), (2018, 10, 31), (1995, 11, 31)]) = SOME (1995,11,31) andalso (oldest [] = NONE);
+
 
 
 

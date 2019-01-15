@@ -1,3 +1,15 @@
+fun is_older(date1 : int * int * int, date2 : int * int * int) =
+  let 
+    val y1 = (#1 date1)
+    val y2 = (#1 date2)
+    val m1 = (#2 date1)
+    val m2 = (#2 date2)
+    val d1 = (#3 date1)
+    val d2 = (#3 date2)
+  in 
+    y1 < y2 orelse ( y1 = y2 andalso m1 < m2) orelse ( y1 = y2 andalso m1 = m2 andalso d1 < d2) 
+  end
+
 fun get_nth(words : string list, index : int) = 
   let 
     val new_index = index -1
@@ -65,3 +77,21 @@ fun recursive_month_range(start_day:int, end_day:int, accumulator: int list) =
 
 fun month_range(start_day:int, end_day:int) = 
   recursive_month_range(start_day, end_day, [])
+
+fun oldest(dates: (int*int*int) list) = 
+  if null dates
+  then NONE
+  else 
+    if length dates = 1
+      then SOME (hd dates)
+    else 
+      let 
+        val first_date = hd dates
+        val second_date = hd (tl dates)
+        val new_accumulator = [first_date] @ tl (tl dates)
+      in
+        if is_older(first_date, second_date)
+          then oldest(new_accumulator)
+        else  
+          oldest(tl dates)
+      end
