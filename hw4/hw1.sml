@@ -46,7 +46,22 @@ fun number_before_reaching_sum(sum:int, integer_list: int list) =
 
 fun what_month(day: int) = 
   let 
-    val first_day_of_the_month = [ 0, 1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335 ]
+    val last_day_of_the_month = [0,  31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
   in
-    number_before_reaching_sum(day, first_day_of_the_month) 
+    number_before_reaching_sum(day, last_day_of_the_month) 
   end
+
+fun recursive_month_range(start_day:int, end_day:int, accumulator: int list) =
+
+  let 
+    val new_accumulator = accumulator @ [what_month(start_day)]
+    val new_start_day = start_day + 1
+  in
+    if start_day > end_day
+      then accumulator
+    else
+      recursive_month_range(new_start_day, end_day, new_accumulator)
+  end
+
+fun month_range(start_day:int, end_day:int) = 
+  recursive_month_range(start_day, end_day, [])
