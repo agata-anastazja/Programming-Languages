@@ -14,10 +14,10 @@ fun is_older(date1 : int * int * int, date2 : int * int * int) =
 
 fun number_in_month(dates : (int * int * int) list, month : int) =
     if null dates
-    then 0
+        then 0
     else if #2 (hd(dates)) = month
-    then 
-    number_in_month(tl(dates), month) + 1
+        then 
+            number_in_month(tl(dates), month) + 1
     else number_in_month(tl(dates), month)
 
 

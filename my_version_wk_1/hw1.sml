@@ -133,20 +133,15 @@ fun what_month(day: int) =
     number_before_reaching_sum(day, last_day_of_the_month) 
   end
 
-fun recursive_month_range(start_day:int, end_day:int, accumulator: int list) =
-
-  let 
-    val new_accumulator = accumulator @ [what_month(start_day)]
-    val new_start_day = start_day + 1
-  in
-    if start_day > end_day
-      then accumulator
-    else
-      recursive_month_range(new_start_day, end_day, new_accumulator)
-  end
-
 fun month_range(start_day:int, end_day:int) = 
-  recursive_month_range(start_day, end_day, [])
+  if start_day > end_day
+    then []
+  else
+    let
+      val new_start_day = start_day + 1
+    in
+     [what_month(start_day)] @ month_range(new_start_day, end_day)
+    end
 
 fun oldest(dates: (int*int*int) list) = 
   if null dates

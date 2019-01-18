@@ -39,4 +39,5 @@ val test_nth_element_2 = get_nth(["AB","CD", "EF", "GH"], 4) = "GH";
 val test_date_to_string = date_to_string(2018, 12, 31) = "December 31, 2018"; 
 val test8 = number_before_reaching_sum(15, [1, 2, 3, 4, 5, 6]) = 4 andalso (number_before_reaching_sum(15, [1, 2, 3, 4, 4, 5, 6]) = 5);
 val test9 = what_month(33) = 2;
+val test10 = month_range(30, 33) = [1, 1, 2, 2];
 
