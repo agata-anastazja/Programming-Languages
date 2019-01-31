@@ -1,4 +1,10 @@
-(* Homework2 Simple Test *)
+use "hw2.sml";
+
+
+val test1 = all_except_option ("string", ["stringy"]) = NONE 
+
+
+(* Homework2 Simple Test
 (* These are basic test cases. Passing these tests does not guarantee that your code will pass the actual homework grader *)
 (* To run the test, add a new line to the top of this file: use "homeworkname.sml"; *)
 (* All the tests should evaluate to true. For example, the REPL should say: val test1 = true : bool *)
@@ -51,4 +57,4 @@ val test15 = officiate([(Spades,Num 7),(Hearts,King),(Clubs,Ace),(Diamonds,Num 2
 
 val test16 = careful_player([(Diamonds,Num 2),(Clubs,Ace)], 11) = [Draw,Discard (Diamonds,Num 2),Draw]
 
-val test17 = officiate([(Diamonds,Num 2),(Clubs,Ace)], [Draw,Discard (Diamonds,Num 2),Draw], 11) = 0
+val test17 = officiate([(Diamonds,Num 2),(Clubs,Ace)], [Draw,Discard (Diamonds,Num 2),Draw], 11) = 0 *)
