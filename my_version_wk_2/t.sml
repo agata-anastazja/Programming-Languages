@@ -12,6 +12,15 @@ val test4 = all_except_option ("string", [ "strings", "string"]) = SOME ["string
 
 val test5 = all_except_option ("string", [ "strings", "string", "stringiiii"]) = SOME ["strings", "stringiiii"] 
 
+val test_get_substitutions1 = (get_substitutions1 ([["there"]], "foo") = []) 
+
+val test_get_substitutions2 = (get_substitutions1 ([["foo", "there"]], "foo") = ["there"]) 
+
+
+
+(* val test_get_substitutions2 = (get_substitutions1 ([["there"], ["foo", "there"]], "foo") = ["there"])  *)
+
+
 (* Homework2 Simple Test
 (* These are basic test cases. Passing these tests does not guarantee that your code will pass the actual homework grader *)
 (* To run the test, add a new line to the top of this file: use "homeworkname.sml"; *)
