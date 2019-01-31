@@ -3,6 +3,14 @@ use "hw2.sml";
 
 val test1 = all_except_option ("string", ["stringy"]) = NONE 
 
+val test2 = all_except_option ("string", ["strings"]) = NONE 
+
+val test3 = all_except_option ("string", ["string", "strings"]) = SOME ["strings"] 
+
+
+val test4 = all_except_option ("string", [ "strings", "string"]) = SOME ["strings"] 
+
+val test5 = all_except_option ("string", [ "strings", "string", "stringiiii"]) = SOME ["strings", "stringiiii"] 
 
 (* Homework2 Simple Test
 (* These are basic test cases. Passing these tests does not guarantee that your code will pass the actual homework grader *)
