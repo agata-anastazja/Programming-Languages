@@ -23,7 +23,11 @@ val test3_get_substitutions2 = (get_substitutions2([["Fred","Fredrick"],["Jeff",
 
 val test4_get_substitutions3 = get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]],"Fred") = ["Fredrick","Freddie","F"]
 
-
+val test_similar_names = similar_names ([["Fred"]], {first="Fred", middle="W", last="Smith"}) =
+	    [{first="Fred", last="Smith", middle="W"}]
+(* 
+val test_similar_names2 = similar_names ([["Fred","Fredrick"]], {first="Fred", middle="W", last="Smith"}) =
+	    [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"}] *)
 
 (* Homework2 Simple Test
 (* These are basic test cases. Passing these tests does not guarantee that your code will pass the actual homework grader *)

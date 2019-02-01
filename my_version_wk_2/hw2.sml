@@ -29,3 +29,14 @@ fun get_substitutions_tail_recursive(stringlistlist, str, accumulator) =
 
  fun get_substitutions2(strlistList, str) = 
     get_substitutions_tail_recursive(strlistList, str, [])
+
+ fun similar_names(listOfNameLists, {first=x,middle=y,last=z}) = 
+    case listOfNameLists of
+        [] => []
+        | head::tail => 
+            
+            let 
+            val (firstName :: otherNames) = head
+            in 
+            [{first=firstName, middle=y, last=z}]
+            end
