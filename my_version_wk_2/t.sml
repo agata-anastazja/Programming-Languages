@@ -3,12 +3,7 @@ use "hw2.sml";
 
 val test1 = all_except_option ("string", ["stringy"]) = NONE 
 
-val test2 = all_except_option ("string", ["strings"]) = NONE 
-
 val test3 = all_except_option ("string", ["string", "strings"]) = SOME ["strings"] 
-
-
-val test4 = all_except_option ("string", [ "strings", "string"]) = SOME ["strings"] 
 
 val test5 = all_except_option ("string", [ "strings", "string", "stringiiii"]) = SOME ["strings", "stringiiii"] 
 
@@ -16,9 +11,18 @@ val test_get_substitutions1 = (get_substitutions1 ([["there"]], "foo") = [])
 
 val test_get_substitutions2 = (get_substitutions1 ([["foo", "there"]], "foo") = ["there"]) 
 
+val test_get_substitutions21 = (get_substitutions1 ([["there"], ["foo", "there"]], "foo") = ["there"]) 
 
+val test21 = (get_substitutions1([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]],
+"Jeff") = ["Jeffrey","Geoff","Jeffrey"]) 
 
-(* val test_get_substitutions2 = (get_substitutions1 ([["there"], ["foo", "there"]], "foo") = ["there"])  *)
+val test2_get_substitutions2 = (get_substitutions2 ([["foo"],["there"]], "foo") = []) 
+
+val test3_get_substitutions2 = (get_substitutions2([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]],
+"Jeff") = ["Jeffrey","Geoff","Jeffrey"])
+
+val test4_get_substitutions3 = get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]],"Fred") = ["Fredrick","Freddie","F"]
+
 
 
 (* Homework2 Simple Test
