@@ -19,15 +19,10 @@ val test21 = (get_substitutions1([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff
 val test2_get_substitutions2 = (get_substitutions2 ([["foo"],["there"]], "foo") = []) 
 
 val test3_get_substitutions2 = (get_substitutions2([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]],
-"Jeff") = ["Jeffrey","Geoff","Jeffrey"])
+"Jeff") = ["Jeffrey","Geoff","Jeffrey"]) 
 
-val test4_get_substitutions3 = get_substitutions1([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]],"Fred") = ["Fredrick","Freddie","F"]
 
-val test_similar_names = similar_names ([["Fred"]], {first="Fred", middle="W", last="Smith"}) =
-	    [{first="Fred", last="Smith", middle="W"}]
-(* 
-val test_similar_names2 = similar_names ([["Fred","Fredrick"]], {first="Fred", middle="W", last="Smith"}) =
-	    [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"}] *)
+
 
 (* Homework2 Simple Test
 (* These are basic test cases. Passing these tests does not guarantee that your code will pass the actual homework grader *)
@@ -45,11 +40,11 @@ val test3 = (get_substitutions2 ([["foo"],["there"]], "foo") = []) andalso
 (get_substitutions2([["Fred","Fredrick"],["Jeff","Jeffrey"],["Geoff","Jeff","Jeffrey"]],
 "Jeff") = ["Geoff","Jeffrey","Jeffrey"]) 
 andalso (get_substitutions2([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]],"Fred") = ["Freddie","F","Fredrick"])
-
+ *)
 val test4 = similar_names ([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) =
 	    [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
 	     {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
-
+(*  
 val test5 = card_color (Clubs, Num 2) = Black
 
 val test6 = card_value (Clubs, Num 2) = 2
