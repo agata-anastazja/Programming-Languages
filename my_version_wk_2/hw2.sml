@@ -30,10 +30,6 @@ fun get_substitutions_tail_recursive(stringlistlist, str, accumulator) =
  fun get_substitutions2(strlistList, str) = 
     get_substitutions_tail_recursive(strlistList, str, [])
 
-(* 
-([["Fred","Fredrick"]], {first="Fred", middle="W", last="Smith"}) =
-	    [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"}] *)
-
 
 fun createListOfEntries(listOfNames, {first=x,middle=y,last=z}) =
     case listOfNames of
@@ -44,8 +40,7 @@ fun createListOfEntries(listOfNames, {first=x,middle=y,last=z}) =
 
  fun similar_names(listOfNameLists, name) = 
     let
-        val {first=x,middle=y,last=z} = name
-        
+        val {first=x,middle=y,last=z} = name 
     in
         let
             val flatListOfNames = [x] @ get_substitutions1(listOfNameLists, x)
