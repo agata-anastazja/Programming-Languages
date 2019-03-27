@@ -20,8 +20,11 @@ fun card_color(card_color, card_number) =
 
 fun card_value (suit, rank) =
   case rank of
-      Ace => 14
-    | King => 13
-    | Queen => 12
-    | Jack => 11
+      Ace => 11
+    | King => 10
+    | Queen => 10
+    | Jack => 10
     | Num i => i
+
+fun remove_card (cs, c, e) = 
+  e
