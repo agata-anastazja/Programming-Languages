@@ -27,4 +27,15 @@ fun card_value (suit, rank) =
     | Num i => i
 
 fun remove_card (cs, c, e) = 
-  e
+  case cs of
+    [] => raise e
+    | head::tail => 
+        if (head = c)
+          then tail
+        else 
+          remove_card(tail,c,e) 
+        
+(* if (head = c)
+          then tail
+        else 
+          remove_card(tail,c,e)  *)
