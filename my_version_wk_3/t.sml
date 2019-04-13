@@ -6,6 +6,27 @@ val test5 = card_color (Clubs, Num 2) = Black
 val test6 = card_value (Clubs, Num 2) = 2
 
 val test7 = remove_card ([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
+
+val test8 = remove_card ([(Hearts, Ace), (Hearts, Ace)], (Hearts, Ace), IllegalMove) =  [(Hearts, Ace)] 
+
+
+
+val arguments_for_illegal_remove_card = ([], (Hearts, Ace), IllegalMove)
+
+fun throws (func, args, e) = 
+  (func (args); false) 
+    handle e' => 
+      let 
+        val argExcName = exnName e
+        val thrownExcName = exnName e'
+      in
+        argExcName = thrownExcName
+      end
+
+val test10 = throws(remove_card, arguments_for_illegal_remove_card, IllegalMove)
+
+(* fun test10 = isItThrowingTheRightExceptionHelper ()  *)
+
 (* val test8 = remove_card ([(Hearts, Ace), (Hearts, Ace)], (Hearts, Ace), IllegalMove) = [(Hearts, Ace)] *)
 (*
 val test8 = all_same_color [(Hearts, Ace), (Hearts, Ace)] = true 

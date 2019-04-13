@@ -34,7 +34,12 @@ fun remove_card (cs, c, e) =
           then tail
         else 
           remove_card(tail,c,e) 
-        
+
+(* | head::tail => 
+        if (head = c)
+          then tail
+        else 
+          remove_card(tail,c,e)       *)
 (* if (head = c)
           then tail
         else 
