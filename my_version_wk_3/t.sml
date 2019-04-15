@@ -9,8 +9,6 @@ val test7 = remove_card ([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
 
 val test8 = remove_card ([(Hearts, Ace), (Hearts, Ace)], (Hearts, Ace), IllegalMove) =  [(Hearts, Ace)] 
 
-
-
 val arguments_for_illegal_remove_card = ([], (Hearts, Ace), IllegalMove)
 
 fun throws (func, args, e) = 
@@ -24,6 +22,8 @@ fun throws (func, args, e) =
       end
 
 val test10 = throws(remove_card, arguments_for_illegal_remove_card, IllegalMove)
+
+val test11 = remove_card ([(Hearts, Ace), (Hearts, King), (Hearts, Ace)], (Hearts, King), IllegalMove) =  [(Hearts, Ace), (Hearts, Ace)] 
 
 (* fun test10 = isItThrowingTheRightExceptionHelper ()  *)
 
