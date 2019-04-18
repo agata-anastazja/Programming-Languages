@@ -35,12 +35,15 @@ fun remove_card (cs, c, e) =
         else 
           head :: remove_card(tail,c,e) 
 
-(* | head::tail => 
-        if (head = c)
-          then tail
-        else 
-          remove_card(tail,c,e)       *)
-(* if (head = c)
-          then tail
-        else 
-          remove_card(tail,c,e)  *)
+fun all_same_color(listOfCards) = 
+  let
+    val head::tail = listOfCards
+  in
+    case tail of
+      [] => true
+      | tailHead::tailTail =>
+        if ( tailHead = head )
+          then all_same_color(tail)
+        else
+          false
+    end

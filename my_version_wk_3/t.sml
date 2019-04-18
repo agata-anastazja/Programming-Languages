@@ -25,11 +25,11 @@ val test10 = throws(remove_card, arguments_for_illegal_remove_card, IllegalMove)
 
 val test11 = remove_card ([(Hearts, Ace), (Hearts, King), (Hearts, Ace)], (Hearts, King), IllegalMove) =  [(Hearts, Ace), (Hearts, Ace)] 
 
-(* fun test10 = isItThrowingTheRightExceptionHelper ()  *)
+val test12 = remove_card ([(Hearts, Queen), (Hearts, King), (Hearts, Ace)], (Hearts, King), IllegalMove) =  [(Hearts, Queen), (Hearts, Ace)] 
 
-(* val test8 = remove_card ([(Hearts, Ace), (Hearts, Ace)], (Hearts, Ace), IllegalMove) = [(Hearts, Ace)] *)
+
+val test13 = all_same_color( [(Hearts, Ace), (Hearts, Ace)]) = true 
 (*
-val test8 = all_same_color [(Hearts, Ace), (Hearts, Ace)] = true 
 andalso (all_same_color [(Clubs,Ace),(Spades,Ace),(Clubs,Ace),(Spades,Ace)] = true)
 
 val test9 = sum_cards [(Clubs, Num 2),(Clubs, Num 2)] = 4
