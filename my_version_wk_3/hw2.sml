@@ -42,7 +42,7 @@ fun all_same_color(listOfCards) =
     case tail of
       [] => true
       | tailHead::tailTail =>
-        if ( tailHead = head )
+        if ( card_color tailHead = card_color head )
           then all_same_color(tail)
         else
           false

@@ -29,6 +29,9 @@ val test12 = remove_card ([(Hearts, Queen), (Hearts, King), (Hearts, Ace)], (Hea
 
 
 val test13 = all_same_color( [(Hearts, Ace), (Hearts, Ace)]) = true 
+
+val test14 = all_same_color( [(Hearts, King), (Hearts, Ace)]) = true 
+
 (*
 andalso (all_same_color [(Clubs,Ace),(Spades,Ace),(Clubs,Ace),(Spades,Ace)] = true)
 
