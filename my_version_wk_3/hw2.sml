@@ -47,3 +47,12 @@ fun all_same_color(listOfCards) =
         else
           false
     end
+
+fun sum_cards_recursive(listOfCards, acc) = 
+    case listOfCards of
+      [] => 0 + acc
+      | head :: tail =>
+        sum_cards_recursive (tail, card_value head + acc)
+
+fun sum_cards(listOfCards) = 
+    sum_cards_recursive(listOfCards, 0)
