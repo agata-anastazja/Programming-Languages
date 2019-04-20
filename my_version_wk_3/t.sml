@@ -38,6 +38,17 @@ val test16 = sum_cards [(Clubs, Num 2),(Clubs, Num 2)] = 4
 val test17 = sum_cards [] = 0
 val test18 = sum_cards [(Clubs, Ace),(Clubs, Num 2)]  = 13
 
+val test19 = score ([(Hearts, Num 2)], 3 ) = 1
+
+
+val test20 = score ([(Hearts, Num 1), (Clubs, Num 1)], 1 )  = 3
+
+val test21 = score ([(Hearts, Num 1), (Hearts, Num 1), (Hearts, Num 1)], 1 ) = 3
+val test22 = score ([(Hearts, Num 1), (Hearts, Num 1), (Hearts, Num 1)], 3 ) = 0
+val test23 = score ([(Hearts, Num 1), (Hearts, Num 1), (Hearts, Num 1)], 6 ) = 1
+
+
+
 
 (*
 val test10 = score ([(Hearts, Num 2),(Clubs, Num 4)],10) = 4

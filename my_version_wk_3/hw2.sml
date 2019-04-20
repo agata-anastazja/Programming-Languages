@@ -56,3 +56,28 @@ fun sum_cards_recursive(listOfCards, acc) =
 
 fun sum_cards(listOfCards) = 
     sum_cards_recursive(listOfCards, 0)
+
+fun intermediary_score( listOfCards, goal) = 
+  let
+    val handValue = sum_cards(listOfCards)
+  in
+    if (handValue > goal )
+      then (handValue - goal) * 3
+    else 
+      goal - handValue
+  end
+
+(* [(Hearts, Num 1), (Hearts, Num 1), (Hearts, Num 1)], 1 )  *)
+fun score(listOfCards, goal) = 
+  let 
+    val intermediaryScore = intermediary_score(listOfCards, goal)
+    val sameColor = all_same_color(listOfCards)
+  in 
+    if (sameColor)
+      then intermediaryScore  div 2
+    else
+      intermediaryScore
+  end
+
+
+
