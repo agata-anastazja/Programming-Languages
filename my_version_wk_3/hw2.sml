@@ -1,83 +1,62 @@
-use "../my_version_wk_2/hw2.sml";
+use "hw2_copy.sml";
 
 
-datatype suit = Clubs | Diamonds | Hearts | Spades
-datatype rank = Jack | Queen | King | Ace | Num of int 
-type card = suit * rank
+(* replace 0 with calculate final result *)
 
-datatype color = Red | Black
-datatype move = Discard of card | Draw 
+fun testPatternMatching(cardList, moveList, heldCards, goal) =
+  case moveList of
+    [] => [(Hearts, Num 2)]
+    | Draw::moveListTail => 
+      (case cardList of
+        [] => [(Hearts, Num 2)]
+        | cardListHead::cardListTail => cardListTail
+        ) 
+    | x => [(Hearts, Num 2)]
+(* 
+fun testPatternMatching(moveList) = 
+  case moveList of
+    [] => 0
+    | Draw::drawTail => 
+      (case drawTail of
+        [] => 1
+        | x => 2)
+    | x => 3
+ *)
 
-exception IllegalMove
+(* (case cardList of 
+        [] => 0
+        | cardListHead::cardListTail =>
+            let
+              val result =  score(heldCards, goal) - goal
+            in
+              if result < 0
+                play(cardListTail, drawTail, cardListHead::heldCards )
+              else 
+                result
+              end
+        
+      
+      ) *)
 
 
-fun card_color(card_color, card_number) = 
-    case card_color of
-        Diamonds => Red
-        | Hearts => Red
-        | Spades => Black
-        | Clubs => Black
+to do: 
 
-fun card_value (suit, rank) =
-  case rank of
-      Ace => 11
-    | King => 10
-    | Queen => 10
-    | Jack => 10
-    | Num i => i
+fun playDraw(cardList, heldCards) =
+  case cardList of
+    [] => raise IllegalMove 
+    | cardListHead::cardListTail => (cardListTail, cardListHead::heldCards)
 
-fun remove_card (cs, c, e) = 
-  case cs of
-    [] => raise e
-    | head::tail => 
-        if (head = c)
-          then tail
-        else 
-          head :: remove_card(tail,c,e) 
-
-fun all_same_color(listOfCards) = 
-  let
-    val head::tail = listOfCards
-  in
-    case tail of
-      [] => true
-      | tailHead::tailTail =>
-        if ( card_color tailHead = card_color head )
-          then all_same_color(tail)
+fun play(cardList, moveList, heldCards, goal) =
+  case moveList of
+    [] => 0
+    | Draw::moveListTail => 
+      let
+        val newCardList*newHeldCards = playDraw(cardList, heldCards)
+        val result = goal - score(newHeldCards, goal) 
+      in
+        if result > 0
+          play(newCardList, moveListTail, newHeldCards, goal)
         else
-          false
-    end
-
-fun sum_cards_recursive(listOfCards, acc) = 
-    case listOfCards of
-      [] => 0 + acc
-      | head :: tail =>
-        sum_cards_recursive (tail, card_value head + acc)
-
-fun sum_cards(listOfCards) = 
-    sum_cards_recursive(listOfCards, 0)
-
-fun intermediary_score( listOfCards, goal) = 
-  let
-    val handValue = sum_cards(listOfCards)
-  in
-    if (handValue > goal )
-      then (handValue - goal) * 3
-    else 
-      goal - handValue
-  end
-
-(* [(Hearts, Num 1), (Hearts, Num 1), (Hearts, Num 1)], 1 )  *)
-fun score(listOfCards, goal) = 
-  let 
-    val intermediaryScore = intermediary_score(listOfCards, goal)
-    val sameColor = all_same_color(listOfCards)
-  in 
-    if (sameColor)
-      then intermediaryScore  div 2
-    else
-      intermediaryScore
-  end
-
-
-
+          result
+      end
+    | x => 0
