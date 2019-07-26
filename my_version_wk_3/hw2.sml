@@ -39,7 +39,7 @@ fun testPatternMatching(moveList) =
       ) *)
 
 
-to do: 
+
 
 fun playDraw(cardList, heldCards) =
   case cardList of
@@ -51,12 +51,13 @@ fun play(cardList, moveList, heldCards, goal) =
     [] => 0
     | Draw::moveListTail => 
       let
-        val newCardList*newHeldCards = playDraw(cardList, heldCards)
-        val result = goal - score(newHeldCards, goal) 
+        val (newCardList, newHeldCards) = playDraw(cardList, heldCards)
+        val result = score(newHeldCards, goal) - goal
       in
-        if result > 0
-          play(newCardList, moveListTail, newHeldCards, goal)
+        if result < 0 
+          then play(newCardList, moveListTail, newHeldCards, goal)
         else
           result
       end
-    | x => 0
+    
+    | x => raise IllegalMove;
