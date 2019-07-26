@@ -10,4 +10,4 @@ val testPatternMatching2 = testPatternMatching([(Hearts, Num 1)], [Draw], [], 0)
 val test2 = play([], [], [], 0) = 0;
 
 val test3 = play([(Hearts, Num 1)], [Draw], [], 0) = 1 ;
-val test3 = play([(Hearts, Num 1)], [Draw], [], 1)  ;
+val test4 = play([(Hearts, Num 1)], [Draw], [], 1) = 0 ;
