@@ -30,5 +30,4 @@ fun play(cardList, moveList, heldCards, goal) =
           else
             result
         end)
-    
-    | x => raise IllegalMove;
+    | Discard c :: moveListTail => 23 

@@ -39,6 +39,28 @@ val test21 = score ([(Hearts, Num 1), (Hearts, Num 1), (Hearts, Num 1)], 1 ) = 3
 val test22 = score ([(Hearts, Num 1), (Hearts, Num 1), (Hearts, Num 1)], 3 ) = 0
 val test23 = score ([(Hearts, Num 1), (Hearts, Num 1), (Hearts, Num 1)], 6 ) = 1
 
+
+
+
+
+(* 
+val testPatternMatching1 = testPatternMatching([], [Draw], [], 0);
+
+val testPatternMatching2 = testPatternMatching([(Hearts, Num 1)], [Draw], [], 0);
+val test2 = play([], [], [], 0) = 0; *)
+
+(* val test3 = play([(Hearts, Num 1)], [Draw], [], 0) = 1 ;
+val test4 = play([(Hearts, Num 1)], [Draw], [], 1) = 0 ;
+
+val test5 = play([(Hearts, Num 3)], [Draw], [(Hearts, Num 1)], 1) = 3 ;   *)
+
+(* expect discard of card to throw an error *)
+(* throws(playRound, arguments_for_illegal_play_card, IllegalMove) *) *)
+(* val test6 = throws(play, ([(Hearts, Num 3)], [Discard (Hearts, Num 1)], [(Hearts, Num 1)], 1) , IllegalMove ) *)
+ (* play([(Hearts, Num 3)], [Discard (Hearts, Num 1)], [(Hearts, Num 1)], 1) ;   *)
+(* expect discard of card to return a score
+
+
 (* 
  val testPlayARound = playRound ([(Hearts, Num 1)], [Draw], []) = ([],[],[(Hearts,Num 1)])
 
