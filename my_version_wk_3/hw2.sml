@@ -1,7 +1,5 @@
 use "hw2_copy.sml";
 
-
-
 fun testPatternMatching(cardList, moveList, heldCards, goal) =
   case moveList of
     [] => [(Hearts, Num 2)]
@@ -30,4 +28,4 @@ fun play(cardList, moveList, heldCards, goal) =
           else
             result
         end)
-    | Discard c :: moveListTail => 23 
+     | Discard card :: moveListTail => play(cardList, moveListTail, remove_card(heldCards, card, IllegalMove), goal)
