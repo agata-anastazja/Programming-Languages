@@ -29,3 +29,8 @@ fun play(cardList, moveList, heldCards, goal) =
             result
         end)
      | Discard card :: moveListTail => play(cardList, moveListTail, remove_card(heldCards, card, IllegalMove), goal)
+
+
+fun officiate(cardList, moveList, goal) = 
+  play(cardList, moveList, [], goal)
+  
