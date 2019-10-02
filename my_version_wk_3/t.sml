@@ -1,15 +1,9 @@
-use "hw2.sml";
-use "../testingHelper/error_testing.sml";
+use "provided.sml";
 
-val test123 = 1=1
-val test1 = play([], [Draw], [], 0) = 0
+val test1 = only_capitals ["A","B","C"] = ["A","B","C"]
 
-(* error scenario 
+val test2 = only_capitals ["A", "b"] = ["A"]
 
+val test3 = longest_string1 ["A","bc","C"] = "bc"
 
-(cardList, moveList, heldCards, goal)
-*)
-val arguments_for_illegal_discard = ([(Hearts, Num 3)], [Discard (Hearts, Num 3)], [(Hearts, Num 1)], 1)
-
-val test8 = throws(play, arguments_for_illegal_discard, IllegalMove) 
 
