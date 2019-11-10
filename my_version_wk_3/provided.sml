@@ -40,6 +40,7 @@ fun longest_string2 stringList =
 	
 (* • longest_string3 has the same behavior as longest_string1 and longest_string4 has the
 same behavior as longest_string2.
+fn : (int * int -> bool) -> string list -> string
 • longest_string_helper has type (int * int -> bool) -> string list -> string
 (notice the currying). This function will look a lot like longest_string1 and longest_string2
 but is more general because it takes a function as an argument.
@@ -52,6 +53,7 @@ of longest_string_helper.*)
 (* val longest_string_helper = fn appliedFunction => fn (x, acc) => fn stringList => List.foldl(appliedFunction) *)
 
 val helper = fn (first_argument, second_argument) =>  first_argument >  second_argument
+val helper2 = fn (first_argument, second_argument) =>  if first_argument <  second_argument then true else false
 
 fun fold f acc xs =
 	case xs of
@@ -90,3 +92,4 @@ fun longest_string_helper f = fn stringList =>
 			)
 
 val longest_string3 =  fn stringList => longest_string_helper helper stringList 
+val longest_string4 =  fn stringList => longest_string_helper helper2 stringList 

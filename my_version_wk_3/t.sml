@@ -15,4 +15,4 @@ val test6 = longest_string_helper
 
  val test4a = longest_string3 ["A","bc","C"] = "bc"
 
-(* val test4b = longest_string4 ["A","B","C"] = "C" *)
+val test4b = longest_string4 ["A","B","C"] = "C"
