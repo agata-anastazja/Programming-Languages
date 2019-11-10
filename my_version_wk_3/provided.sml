@@ -64,7 +64,7 @@ fun fold f = fn acc => fn xs =>
 	| x::xs' => fold f (f(acc,x)) xs'
 
 
-fun longest_string_helper f = fn stringList => fn acc =>
+fun longest_string_helper_2 f = fn stringList => fn acc =>
 	case stringList of
 		[] => acc
 		| x::xs' => 
@@ -74,7 +74,19 @@ fun longest_string_helper f = fn stringList => fn acc =>
 						x
 					else acc
 			in
-				longest_string_helper f xs' new_accumulator
+				longest_string_helper_2 f xs' new_accumulator
 			end
 
-val longest_string3 =  fn stringList => longest_string_helper helper stringList ""
+fun longest_string_helper f = fn stringList => 
+	case stringList of
+		[] => ""
+		| x::xs' => 
+		  (case xs' of
+				[] => x
+				| z::zs' => 
+				 if (f(String.size(x), String.size(z)))
+				 then longest_string_helper f (x::zs') 
+				 else longest_string_helper  f (z::zs') 
+			)
+
+val longest_string3 =  fn stringList => longest_string_helper helper stringList 
