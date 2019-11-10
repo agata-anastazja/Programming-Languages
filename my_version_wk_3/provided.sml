@@ -49,5 +49,32 @@ behavior as longest_string1.
 • longest_string3 and longest_string4 are defined with val-bindings and partial applications
 of longest_string_helper.*)
 
-val longest_string_helper = fn appliedFunction => fn (x, acc) => fn stringList => List.foldl(appliedFunction)
+(* val longest_string_helper = fn appliedFunction => fn (x, acc) => fn stringList => List.foldl(appliedFunction) *)
 
+val helper = fn (first_argument, second_argument) =>  first_argument >  second_argument
+
+fun fold f acc xs =
+	case xs of
+	[] => acc
+	| x::xs' => fold f (f(acc,x)) xs'
+
+fun fold f = fn acc => fn xs =>
+	case xs of
+	[] => acc
+	| x::xs' => fold f (f(acc,x)) xs'
+
+
+fun longest_string_helper f = fn stringList => fn acc =>
+	case stringList of
+		[] => acc
+		| x::xs' => 
+			let 
+				val new_accumulator = if f(String.size(x), String.size(acc))
+					then
+						x
+					else acc
+			in
+				longest_string_helper f xs' new_accumulator
+			end
+
+val longest_string3 =  fn stringList => longest_string_helper helper stringList ""
