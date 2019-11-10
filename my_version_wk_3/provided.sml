@@ -51,4 +51,3 @@ of longest_string_helper.*)
 
 val longest_string_helper = fn appliedFunction => fn (x, acc) => fn stringList => List.foldl(appliedFunction)
 
-f
