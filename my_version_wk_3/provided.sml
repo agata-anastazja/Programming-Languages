@@ -80,14 +80,33 @@ fun longest_string_helper f = fn stringList =>
 val longest_string3 =  fn stringList => longest_string_helper helper stringList 
 val longest_string4 =  fn stringList => longest_string_helper helper2 stringList 
 
- (* Write a function longest_capitalized that takes astring 
- listand returns the longest string inthe list that begins 
- with an uppercase letter,  or "" if there are no such strings.  
- Assume all stringshave at least 1 character.  Use aval-binding 
- and the ML library’s o operator for composing functions.
- Resolve ties like in problem 2 
+val longest_capitalized = fn stringList => (longest_string1 o only_capitals) stringList
+
+(* rev_string that takes a string and returns the string
+ that is the same characters inreverse order. Use ML’s o 
+ operator, the library function rev for reversing lists, and
+  two library functionsin theStringmodule.  (Browse the module
+ documentation to find the most useful functions.
 (sign o foo) (4,~5)
 Which would give you the same as sign (foo (4,~5)).
 *)
 
-val longest_capitalized = fn stringList => (longest_string1 o only_capitals) stringList
+
+fun splitter splitString = 
+	let 
+	val length = String.size(splitString)
+	in
+	case length of
+	0 => []
+	| 1 => splitString :: splitter("")
+	| length => String.substring(splitString, 0,1)  :: splitter(String.substring(splitString, 1,length-1))
+	end
+
+fun rev_string splitString = 
+let
+	val arrayOfChars = splitter(splitString)
+	val reversedArray = List.rev(arrayOfChars)
+	in
+	 foldl (fn (x,acc) =>
+                acc  ^  x) (hd reversedArray) (tl reversedArray)
+	end
