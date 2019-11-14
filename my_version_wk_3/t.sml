@@ -17,5 +17,6 @@ val test5 = longest_string2 ["Ab","ac","C"] = "ac"
 val test4b = longest_string4 ["A","B","C"] = "C"
 val test6 = longest_capitalized ["A","bc","C"] = "A"
 val test7 = longest_capitalized ["a"] = ""
- val test8 = splitter "abc" = ["a", "b", "c"] 
+val test8 = splitter "abc" = ["a", "b", "c"] 
 val test9 = rev_string "abc" = "cba"
+val test10 = first_answer (fn x => if x > 3 then SOME x else NONE) [1,2,3,4,5] = 4 

@@ -82,16 +82,6 @@ val longest_string4 =  fn stringList => longest_string_helper helper2 stringList
 
 val longest_capitalized = fn stringList => (longest_string1 o only_capitals) stringList
 
-(* rev_string that takes a string and returns the string
- that is the same characters inreverse order. Use ML’s o 
- operator, the library function rev for reversing lists, and
-  two library functionsin theStringmodule.  (Browse the module
- documentation to find the most useful functions.
-(sign o foo) (4,~5)
-Which would give you the same as sign (foo (4,~5)).
-*)
-
-
 fun splitter splitString = 
 	let 
 	val length = String.size(splitString)
@@ -110,3 +100,14 @@ fun rev_string splitString =
 	in
 		List.foldl (fn (x, a) =>  a^x  ) "" reversedArray
 	end
+
+
+fun first_answer f l = 
+	case l of
+		[] => raise NoAnswer
+		| x::xs => (case (f x)  of 
+			NONE => first_answer f xs
+			| SOME x => x
+		)
+	
+
