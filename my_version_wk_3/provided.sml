@@ -103,10 +103,9 @@ fun splitter splitString =
 	end
 
 fun rev_string splitString = 
-let
-	val arrayOfChars = splitter(splitString)
-	val reversedArray = List.rev(arrayOfChars)
+	let
+		val arrayOfChars = splitter(splitString)
+		val reversedArray = List.rev(arrayOfChars)
 	in
-	 foldl (fn (x,acc) =>
-                acc  ^  x) (hd reversedArray) (tl reversedArray)
+	 foldl (fn (x,acc) => acc  ^  x) (hd reversedArray) (tl reversedArray)
 	end
