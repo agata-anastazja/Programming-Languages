@@ -19,4 +19,3 @@ val test6 = longest_capitalized ["A","bc","C"] = "A"
 val test7 = longest_capitalized ["a"] = ""
  val test8 = splitter "abc" = ["a", "b", "c"] 
 val test9 = rev_string "abc" = "cba"
-
