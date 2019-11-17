@@ -111,3 +111,20 @@ fun first_answer f l =
 		)
 	
 
+fun all_answers_helper f l acc = 
+	case l of
+		[] => acc
+		| x::xs => (
+			case f x of
+				NONE => all_answers_helper f xs acc
+				| SOME x => all_answers_helper f xs (acc @ x)
+		)
+
+fun all_answers f l =
+	let 
+		val newList = all_answers_helper f l []
+	in 
+		if List.length(newList) = List.length(l)
+		then SOME newList
+		else NONE
+	end

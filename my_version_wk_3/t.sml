@@ -20,3 +20,8 @@ val test7 = longest_capitalized ["a"] = ""
 val test8 = splitter "abc" = ["a", "b", "c"] 
 val test9 = rev_string "abc" = "cba"
 val test10 = first_answer (fn x => if x > 3 then SOME x else NONE) [1,2,3,4,5] = 4 
+
+val test8a = all_answers (fn x => if x = 1 then SOME [x] else NONE) [2,3,4,5,6,7] = NONE
+
+val test8b = all_answers (fn x => if x = 1 then SOME [x] else NONE) [1, 1, 1] = SOME [1, 1, 1] 
+
